@@ -1,0 +1,12 @@
+main
+*.o
+*.gcov
+*.gcda
+*.gcno
+*.gz
+*.html
+*.css
+output.txt
+valgrind.txt
+coverage.txt
+.vscode
