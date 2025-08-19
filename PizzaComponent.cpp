@@ -1,6 +1,6 @@
 #include "PizzaComponent.h"
 
-string PizzaComponent::getName() {
+std::string PizzaComponent::getName() {
 	return this->name;
 }
 

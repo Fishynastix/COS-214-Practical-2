@@ -1,6 +1,9 @@
 #ifndef MENUS_H
 #define MENUS_H
 
+#include "Observer.h"
+#include "Pizza.h"
+
 class Menus {
 
 private:
@@ -16,7 +19,7 @@ public:
 
 	void removePizza(Pizza pizza);
 
-	void notifyObservers(string message);
+	void notifyObservers(std::string message);
 };
 
 #endif

@@ -1,15 +1,17 @@
 #ifndef PREPARINGSTATE_H
 #define PREPARINGSTATE_H
 
+#include "Order.h"
+
 class PreparingState {
 
 
 public:
 	void processOrder(Order order);
 
-	void cancelOrder(Order odrer);
+	void cancelOrder(Order order);
 
-	string getStateName();
+	std::string getStateName();
 };
 
 #endif

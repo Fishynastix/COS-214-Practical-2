@@ -1,6 +1,9 @@
 #ifndef PIZZADECORATOR_H
 #define PIZZADECORATOR_H
 
+#include "Pizza.h"
+#include <string>
+
 class PizzaDecorator {
 
 private:
@@ -9,7 +12,7 @@ private:
 public:
 	double getPrice();
 
-	string getName();
+	std::string getName();
 
 	void printPizza();
 };

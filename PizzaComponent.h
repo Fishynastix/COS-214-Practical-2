@@ -1,15 +1,16 @@
 #ifndef PIZZACOMPONENT_H
 #define PIZZACOMPONENT_H
 
+#include <string>
+
 class PizzaComponent {
 
 private:
 	double price;
-	string name;
+	std::string name;
 
 public:
-	string getName();
-
+	std::string getName();
 	double getPrice();
 };
 

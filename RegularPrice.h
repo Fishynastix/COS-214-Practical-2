@@ -1,6 +1,8 @@
 #ifndef REGULARPRICE_H
 #define REGULARPRICE_H
 
+#include "Order.h"
+
 class RegularPrice {
 
 

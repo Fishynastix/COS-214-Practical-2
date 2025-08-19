@@ -1,6 +1,8 @@
 #ifndef ORDERSTATE_H
 #define ORDERSTATE_H
 
+#include "Order.h"
+
 class OrderState {
 
 
@@ -9,7 +11,7 @@ public:
 
 	void cancelOrder(Order order);
 
-	string getStateName();
+	std::string getStateName();
 };
 
 #endif

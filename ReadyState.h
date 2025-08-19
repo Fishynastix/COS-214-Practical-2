@@ -1,6 +1,8 @@
 #ifndef READYSTATE_H
 #define READYSTATE_H
 
+#include "Order.h"
+
 class ReadyState {
 
 
@@ -9,7 +11,7 @@ public:
 
 	void cancelOrder(Order order);
 
-	string getStateName();
+	std::string getStateName();
 };
 
 #endif

@@ -1,6 +1,8 @@
 #ifndef BASEPIZZA_H
 #define BASEPIZZA_H
 
+#include "PizzaComponent.h"
+
 class BasePizza {
 
 private:
@@ -9,7 +11,7 @@ private:
 public:
 	double getPrice();
 
-	string getName();
+	std::string getName();
 
 	void printPizza();
 

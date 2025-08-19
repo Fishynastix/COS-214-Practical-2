@@ -1,6 +1,8 @@
 #ifndef PENDINGSTATE_H
 #define PENDINGSTATE_H
 
+#include "Order.h"
+
 class PendingState {
 
 
@@ -9,7 +11,7 @@ public:
 
 	void cancelOrder(Order order);
 
-	string getStateName();
+	std::string getStateName();
 };
 
 #endif

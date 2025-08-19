@@ -1,18 +1,20 @@
 #ifndef TOPPING_H
 #define TOPPING_H
 
+#include <string>
+
 class Topping {
 
 private:
 	double price;
-	string name;
+	std::string name;
 
 public:
-	string getName();
+	std::string getName();
 
 	double getPrice();
 
-	Topping(string name, double price);
+	Topping(std::string name, double price);
 };
 
 #endif

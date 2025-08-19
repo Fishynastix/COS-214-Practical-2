@@ -1,15 +1,18 @@
 #ifndef TOPPINGGROUP_H
 #define TOPPINGGROUP_H
 
+#include <string>
+#include "PizzaComponent.h"
+
 class ToppingGroup {
 
 private:
 	double price;
-	string name;
+	std::string name;
 	PizzaComponent* toppings;
 
 public:
-	string getName();
+	std::string getName();
 
 	double getPrice();
 
@@ -17,7 +20,7 @@ public:
 
 	void remove(PizzaComponent component);
 
-	ToppingGroup(string name);
+	ToppingGroup(std::string name);
 };
 
 #endif

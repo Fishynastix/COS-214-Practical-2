@@ -5,7 +5,7 @@ double StuffedCrust::getPrice() {
 	throw "Not yet implemented";
 }
 
-string StuffedCrust::getName() {
+std::string StuffedCrust::getName() {
 	// TODO - implement StuffedCrust::getName
 	throw "Not yet implemented";
 }

@@ -1,6 +1,6 @@
 #include "ToppingGroup.h"
 
-string ToppingGroup::getName() {
+std::string ToppingGroup::getName() {
 	return this->name;
 }
 
@@ -18,7 +18,7 @@ void ToppingGroup::remove(PizzaComponent component) {
 	throw "Not yet implemented";
 }
 
-ToppingGroup::ToppingGroup(string name) {
+ToppingGroup::ToppingGroup(std::string name) {
 	// TODO - implement ToppingGroup::ToppingGroup
 	throw "Not yet implemented";
 }

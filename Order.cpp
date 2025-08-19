@@ -29,7 +29,7 @@ void Order::setState(OrderState state) {
 	this->state = state;
 }
 
-string Order::getStateName() {
+std::string Order::getStateName() {
 	// TODO - implement Order::getStateName
 	throw "Not yet implemented";
 }

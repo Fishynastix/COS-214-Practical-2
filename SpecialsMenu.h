@@ -1,11 +1,13 @@
 #ifndef SPECIALSMENU_H
 #define SPECIALSMENU_H
 
+#include <string>
+
 class SpecialsMenu {
 
 
 public:
-	void notifyObservers(string message);
+	void notifyObservers(std::string message);
 };
 
 #endif

@@ -20,7 +20,7 @@ void Menus::removePizza(Pizza pizza) {
 	throw "Not yet implemented";
 }
 
-void Menus::notifyObservers(string message) {
+void Menus::notifyObservers(std::string message) {
 	// TODO - implement Menus::notifyObservers
 	throw "Not yet implemented";
 }

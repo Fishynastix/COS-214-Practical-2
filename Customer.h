@@ -1,16 +1,18 @@
 #ifndef CUSTOMER_H
 #define CUSTOMER_H
 
+#include <string>
+
 class Customer {
 
 private:
-	string name;
-	boolean isFamily;
+	std::string name;
+	bool isFamily;
 
 public:
-	void update(string message);
+	void update(std::string message);
 
-	Customer(string name, boolean isFamily);
+	Customer(std::string name, bool isFamily);
 };
 
 #endif

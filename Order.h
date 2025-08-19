@@ -1,12 +1,18 @@
 #ifndef ORDER_H
 #define ORDER_H
 
+#include "Pizza.h"
+#include "Customer.h"
+#include "DiscountStrategy.h"
+
+class OrderState;
+
 class Order {
 
 private:
 	Pizza* pizzas;
 	Customer customer;
-	OrderState state;
+	OrderState state; //maybe use a pointer to store order state instead?
 	double total;
 
 public:
@@ -22,7 +28,7 @@ public:
 
 	void setState(OrderState state);
 
-	string getStateName();
+	std::string getStateName();
 
 	Order(Customer customer);
 };

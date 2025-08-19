@@ -5,7 +5,7 @@ double BasePizza::getPrice() {
 	throw "Not yet implemented";
 }
 
-string BasePizza::getName() {
+std::string BasePizza::getName() {
 	// TODO - implement BasePizza::getName
 	throw "Not yet implemented";
 }

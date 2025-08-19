@@ -10,7 +10,7 @@ void DeliveredState::cancelOrder(Order order) {
 	throw "Not yet implemented";
 }
 
-string DeliveredState::getStateName() {
+std::string DeliveredState::getStateName() {
 	// TODO - implement DeliveredState::getStateName
 	throw "Not yet implemented";
 }

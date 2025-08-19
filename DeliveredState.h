@@ -1,6 +1,8 @@
 #ifndef DELIVEREDSTATE_H
 #define DELIVEREDSTATE_H
 
+#include "Order.h"
+
 class DeliveredState {
 
 
@@ -9,7 +11,7 @@ public:
 
 	void cancelOrder(Order order);
 
-	string getStateName();
+	std::string getStateName();
 };
 
 #endif
