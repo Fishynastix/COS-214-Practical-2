@@ -1,6 +1,6 @@
 #include "Order.h"
 
-void Order::addPizza(Pizza pizza) {
+void Order::addPizza(Pizza* pizza) {
 	// TODO - implement Order::addPizza
 	throw "Not yet implemented";
 }
@@ -10,7 +10,7 @@ double Order::calculateTotal() {
 	throw "Not yet implemented";
 }
 
-void Order::setDiscountStrategy(DiscountStrategy strategy) {
+void Order::setDiscountStrategy(DiscountStrategy* strategy) {
 	// TODO - implement Order::setDiscountStrategy
 	throw "Not yet implemented";
 }
@@ -25,7 +25,7 @@ void Order::cancelOrder() {
 	throw "Not yet implemented";
 }
 
-void Order::setState(OrderState state) {
+void Order::setState(OrderState* state) {
 	this->state = state;
 }
 
@@ -34,7 +34,7 @@ std::string Order::getStateName() {
 	throw "Not yet implemented";
 }
 
-Order::Order(Customer customer) {
+Order::Order(Customer* customer) {
 	// TODO - implement Order::Order
 	throw "Not yet implemented";
 }
