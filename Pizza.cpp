@@ -19,6 +19,14 @@ std::string BasePizza::getName() {
 BasePizza::BasePizza(PizzaComponent* toppings) : toppings(toppings) {
 }
 
+Pizza* BasePizza::replicate() {
+	if (toppings != nullptr)
+	{
+		return new BasePizza(toppings->replicate());
+	}
+	return new BasePizza(nullptr);
+}
+
 void PizzaDecorator::printPizza() {
 	if (this->getName() == "Extra Cheese")
 	{
@@ -45,6 +53,10 @@ std::string ExtraCheese::getName() {
 ExtraCheese::ExtraCheese(Pizza* pizza) : PizzaDecorator(pizza) {
 }
 
+Pizza* ExtraCheese::replicate() {
+	return new ExtraCheese(this->getPizza()->replicate());
+}
+
 double StuffedCrust::getPrice() {
 	return 20.00;
 }
@@ -54,4 +66,8 @@ std::string StuffedCrust::getName() {
 }
 
 StuffedCrust::StuffedCrust(Pizza* pizza) : PizzaDecorator(pizza) {
+}
+
+Pizza* StuffedCrust::replicate() {
+	return new StuffedCrust(this->getPizza()->replicate());
 }
