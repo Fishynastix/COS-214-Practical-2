@@ -20,11 +20,18 @@ BasePizza::BasePizza(PizzaComponent* toppings) : toppings(toppings) {
 }
 
 void PizzaDecorator::printPizza() {
-	std::cout << this->getName() << ": " << this->getPrice() << std::endl;
+	if (this->getName() == "Extra Cheese")
+	{
+		std::cout << this->getName() << ": " << this->getPrice() << std::endl;
+	}
 	if (pizza != nullptr)
 	{
 		pizza->printPizza();
 	}	
+	if (this->getName() == "Stuffed Crust")
+	{
+		std::cout << this->getName() << ": " << this->getPrice() << std::endl;
+	}
 }
 
 double ExtraCheese::getPrice() {
