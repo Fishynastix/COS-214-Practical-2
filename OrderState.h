@@ -4,14 +4,38 @@
 #include "Order.h"
 
 class OrderState {
-
-
 public:
-	void processOrder(Order order);
+	virtual void processOrder(Order order);
+	virtual void cancelOrder(Order order);
+	virtual std::string getStateName();
+};
 
-	void cancelOrder(Order order);
+class DeliveredState : public OrderState {
+public:
+	void processOrder(Order order) override;
+	void cancelOrder(Order order) override;
+	std::string getStateName() override;
+};
 
-	std::string getStateName();
+class ReadyState : public OrderState {
+public:
+	void processOrder(Order order) override;
+	void cancelOrder(Order order) override;
+	std::string getStateName() override;
+};
+
+class PendingState : public OrderState {
+public:
+	void processOrder(Order order) override;
+	void cancelOrder(Order order) override;
+	std::string getStateName() override;
+};
+
+class PreparingState : public OrderState {
+public:
+	void processOrder(Order order) override;
+	void cancelOrder(Order order) override;
+	std::string getStateName() override;
 };
 
 #endif
