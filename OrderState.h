@@ -2,6 +2,7 @@
 #define ORDERSTATE_H
 
 #include "Order.h"
+#include <iostream>
 
 class OrderState {
 public:

@@ -1,62 +1,73 @@
 #include "Pizza.h"
 
 void Pizza::printPizza() {
-	// TODO - implement Pizza::printPizza
-	throw "Not yet implemented";
+	std::cout << this->getName() << ": " << this->getPrice() << std::endl;
+}
+
+void BasePizza::printPizza() {
+	std::cout << this->getName() << ": " << this->getPrice() << std::endl;
 }
 
 double BasePizza::getPrice() {
-	// TODO - implement BasePizza::getPrice
-	throw "Not yet implemented";
+	return toppings->getPrice();
 }
 
 std::string BasePizza::getName() {
-	// TODO - implement BasePizza::getName
-	throw "Not yet implemented";
+	return toppings->getName();
 }
 
 BasePizza::BasePizza(PizzaComponent* toppings) : toppings(toppings) {
-	// TODO - implement BasePizza::BasePizza
-	throw "Not yet implemented";
 }
 
-double PizzaDecorator::getPrice() {
-	// TODO - implement PizzaDecorator::getPrice
-	throw "Not yet implemented";
-}
-
-std::string PizzaDecorator::getName() {
-	// TODO - implement PizzaDecorator::getName
-	throw "Not yet implemented";
+Pizza* BasePizza::replicate() {
+	if (toppings != nullptr)
+	{
+		return new BasePizza(toppings->replicate());
+	}
+	return new BasePizza(nullptr);
 }
 
 void PizzaDecorator::printPizza() {
-	// TODO - implement PizzaDecorator::printPizza
-	throw "Not yet implemented";
+	if (this->getName() == "Extra Cheese")
+	{
+		std::cout << this->getName() << ": " << this->getPrice() << std::endl;
+	}
+	if (pizza != nullptr)
+	{
+		pizza->printPizza();
+	}	
+	if (this->getName() == "Stuffed Crust")
+	{
+		std::cout << this->getName() << ": " << this->getPrice() << std::endl;
+	}
 }
 
 double ExtraCheese::getPrice() {
-	// TODO - implement ExtraCheese::getPrice
-	throw "Not yet implemented";
+	return 12.00;
 }
 
 std::string ExtraCheese::getName() {
-	// TODO - implement ExtraCheese::getName
-	throw "Not yet implemented";
+	return "Extra Cheese";
 }
 
 ExtraCheese::ExtraCheese(Pizza* pizza) : PizzaDecorator(pizza) {
 }
 
+Pizza* ExtraCheese::replicate() {
+	return new ExtraCheese(this->getPizza()->replicate());
+}
+
 double StuffedCrust::getPrice() {
-	// TODO - implement StuffedCrust::getPrice
-	throw "Not yet implemented";
+	return 20.00;
 }
 
 std::string StuffedCrust::getName() {
-	// TODO - implement StuffedCrust::getName
-	throw "Not yet implemented";
+	return "Stuffed Crust";
 }
 
 StuffedCrust::StuffedCrust(Pizza* pizza) : PizzaDecorator(pizza) {
+}
+
+Pizza* StuffedCrust::replicate() {
+	return new StuffedCrust(this->getPizza()->replicate());
 }
