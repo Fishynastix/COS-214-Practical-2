@@ -4,18 +4,22 @@
 #include "Pizza.h"
 #include "Observer.h"
 #include "DiscountStrategy.h"
+#include <vector>
+#include <iostream>
 
 class OrderState;
 
 class Order {
 
 private:
-	Pizza* pizzas;
+	std::vector<Pizza*> pizzas;	
 	Customer* customer;
 	OrderState* state; //maybe use a pointer to store order state instead?
+	DiscountStrategy* discountStrategy;
 	double total;
 
 public:
+
 	void addPizza(Pizza* pizza);
 
 	double calculateTotal();
@@ -31,6 +35,11 @@ public:
 	std::string getStateName();
 
 	Order(Customer* customer);
+
+	~Order();
+
+	int getPizzaCount();
+	bool isFamilyOrder();
 };
 
 #endif
