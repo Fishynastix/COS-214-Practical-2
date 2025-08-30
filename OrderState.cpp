@@ -1,8 +1,8 @@
 #include "OrderState.h"
 
-void OrderState::processOrder(Order& order) {}
+void OrderState::processOrder(Order order) {}
 
-void OrderState::cancelOrder(Order& order) {}
+void OrderState::cancelOrder(Order order) {}
 
 std::string OrderState::getStateName() {
 	return "";
@@ -39,7 +39,7 @@ void PreparingState::processOrder(Order order) {
     order.setState(new ReadyState());
 }
 
-void PreparingState::cancelOrder(Order odrer) {
+void PreparingState::cancelOrder(Order order) {
     std::cout << "Order reverted from Preparing to Pending" << std::endl;
     order.setState(new PendingState()); // Backward transition
 }
