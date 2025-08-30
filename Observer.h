@@ -2,6 +2,7 @@
 #define OBSERVER_H
 
 #include <string>
+#include <iostream>
 
 class Observer {
 public:
