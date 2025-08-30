@@ -6,7 +6,7 @@ void Customer::update(std::string message) {
 
 Customer::Customer(std::string name, bool isFamily) : name(name), isFamily(isFamily) {}
 
-bool Customer::isFamily() { return isFamily; } // Helper for FamilyDiscount
+bool Customer::getIsFamily() const { return isFamily; } // Helper for FamilyDiscount
 
 void Website::update(std::string message) {
     std::cout << "Website updated: " << message << std::endl;
