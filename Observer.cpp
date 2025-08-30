@@ -1,7 +1,5 @@
 #include "Observer.h"
 
-
-
 void Customer::update(std::string message) {
     std::cout << "Customer " << name << " received: " << message << std::endl;
 }
