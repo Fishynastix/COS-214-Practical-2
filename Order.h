@@ -4,17 +4,16 @@
 #include "Pizza.h"
 #include "Observer.h"
 #include "DiscountStrategy.h"
+#include "OrderState.h"
 #include <vector>
 #include <iostream>
-
-class OrderState;
 
 class Order {
 
 private:
 	std::vector<Pizza*> pizzas;	
 	Customer* customer;
-	OrderState* state; //maybe use a pointer to store order state instead?
+	OrderState* state; 
 	DiscountStrategy* discountStrategy;
 	double total;
 

@@ -33,13 +33,14 @@ std::string Order::getStateName() {
 	return state ? state->getStateName() : "None";
 }
 
-Order::Order(Customer* customer) {
-	// TODO - implement Order::Order
-	throw "Not yet implemented";
+Order::Order(Customer* customer) : customer(customer), state(new PendingState()), discountStrategy(new RegularPrice()), total(0.0) {
 }
 
-Order::~Order() : customer(customer), state(new PendingState()), strategy(new RegularPrice()), total(0.0) {}
+Order::~Order() {
+	delete state;
+	delete discountStrategy;
+}
 
 int Order::getPizzaCount() { return pizzas.size(); } // Helper for BulkDiscount
 
-bool Order::isFamilyOrder() { return customer->isFamily(); } // Helper for FamilyDiscount
+bool Order::isFamilyOrder() { return customer->getIsFamily(); } // Helper for FamilyDiscount
