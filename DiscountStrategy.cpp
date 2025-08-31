@@ -1,16 +1,15 @@
 #include "DiscountStrategy.h"
 
 double BulkDiscount::applyDiscount(double total, Order order) {
-	// TODO - implement BulkDiscount::applyDiscount
-	throw "Not yet implemented";
+    return total; // No discount
 }
 
 double FamilyDiscount::applyDiscount(double total, Order order) {
-	// TODO - implement FamilyDiscount::applyDiscount
-	throw "Not yet implemented";
+    if (order.isFamilyOrder()) return total * 0.85; // 15% discount
+    return total;
 }
 
 double RegularPrice::applyDiscount(double total, Order order) {
-	// TODO - implement RegularPrice::applyDiscount
-	throw "Not yet implemented";
+    if (order.getPizzaCount() >= 5) return total * 0.9; // 10% discount
+    return total;
 }
