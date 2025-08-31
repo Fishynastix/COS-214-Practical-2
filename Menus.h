@@ -7,7 +7,7 @@
 
 class Menus {
 
-private:
+protected:
 	std::vector<Observer*> observers;
 	std::vector<Pizza*> pizzas;
 public:
@@ -16,6 +16,7 @@ public:
 	void addPizza(Pizza* pizza);
 	void removePizza(Pizza* pizza);
 	virtual void notifyObservers(std::string message) = 0;
+	virtual ~Menus();
 };
 
 class SpecialsMenu : public Menus {

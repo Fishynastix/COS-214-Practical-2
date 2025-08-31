@@ -1,6 +1,6 @@
 #include "Menus.h"
 
-~Menus() {
+Menus::~Menus() {
 	for (Pizza* pizza : pizzas) delete pizza;
 	// Observers are not deleted as they may be shared
 }
