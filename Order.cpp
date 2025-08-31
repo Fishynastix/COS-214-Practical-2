@@ -7,13 +7,13 @@ void Order::addPizza(Pizza* pizza) {
 double Order::calculateTotal() {
         total = 0.0;
         for (Pizza* pizza : pizzas) total += pizza->getPrice();
-        total = strategy->applyDiscount(total, *this);
+        total = discountStrategy->applyDiscount(total, *this);
         return total;
 }
 
 void Order::setDiscountStrategy(DiscountStrategy* strategy) {
-	delete this->strategy;
-	this->strategy = strategy;
+	delete this->discountStrategy;
+	this->discountStrategy = strategy;
 }
 
 void Order::processOrder() {

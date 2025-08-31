@@ -1,7 +1,7 @@
 #ifndef DISCOUNTSTRATEGY_H
 #define DISCOUNTSTRATEGY_H
 
-#include "Order.h"
+class Order; 
 
 class DiscountStrategy {
 public:
@@ -22,5 +22,7 @@ class RegularPrice : public DiscountStrategy {
 public:
 	double applyDiscount(double total, Order order) override;
 };
+
+#include "Order.h"
 
 #endif
