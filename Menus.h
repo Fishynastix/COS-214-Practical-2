@@ -3,12 +3,13 @@
 
 #include "Observer.h"
 #include "Pizza.h"
+#include <vector>
 
 class Menus {
 
 private:
-	Observer* observers;
-	Pizza* pizzas;
+	std::vector<Observer*> observers;
+	std::vector<Pizza*> pizzas;
 public:
 	void addObserver(Observer* observer);
 	void removeObserver(Observer* observer);

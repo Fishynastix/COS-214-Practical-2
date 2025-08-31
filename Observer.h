@@ -2,6 +2,7 @@
 #define OBSERVER_H
 
 #include <string>
+#include <iostream>
 
 class Observer {
 public:
@@ -13,6 +14,7 @@ private:
 	std::string name;
 	bool isFamily;
 public:
+	bool getIsFamily() const;
 	void update(std::string message) override;
 	Customer(std::string name, bool isFamily);
 };
