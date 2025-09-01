@@ -29,6 +29,7 @@ void Menus::removePizza(Pizza* pizza) {
 		if (*it == pizza) {
 			pizzas.erase(it);
 			notifyObservers("Removed pizza: " + pizza->getName());
+            delete pizza; // Free memory
 			break;
 		}
 	}

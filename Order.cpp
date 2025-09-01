@@ -2,29 +2,21 @@
 
 //don't add a pizza here that is already added in the menu only use menu replicate or build your own pizza
 void Order::addPizza(Pizza* pizza) {
+	if (pizza == nullptr)
+	{
+		return;
+	}
 	pizzas.push_back(pizza);
 }
 
 double Order::calculateTotal() {
         total = 0.0;
         for (Pizza* pizza : pizzas) total += pizza->getPrice();
-		if (discountStrategy != nullptr)
+		if (discountContext != nullptr)
 		{
-			total = discountStrategy->applyDiscount(total, this);
+			total = discountContext->applyDiscount(total, this);
 		}
         return total;
-}
-
-void Order::setDiscountStrategy(DiscountStrategy* strategy) {
-	if (strategy == nullptr)
-	{
-		return;
-	}
-	if (this->discountStrategy != nullptr)
-	{
-		delete this->discountStrategy;
-	}
-	this->discountStrategy = strategy;
 }
 
 void Order::processOrder() {
@@ -56,7 +48,6 @@ std::string Order::getStateName() {
 
 Order::Order(Customer* customer) : customer(customer), total(0.0) {
 	state = new PendingState();
-	discountStrategy = new RegularPrice();
 }
 
 Order::~Order() {
@@ -65,10 +56,10 @@ Order::~Order() {
 		delete state;
 		state = nullptr;
 	}
-	if (discountStrategy != nullptr)
+	if (discountContext != nullptr)
 	{
-		delete discountStrategy;
-		discountStrategy = nullptr;
+		delete discountContext;
+		discountContext = nullptr;
 	}
 	for (int i = 0; i < pizzas.size(); i++)
 	{

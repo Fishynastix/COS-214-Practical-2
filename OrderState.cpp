@@ -1,12 +1,12 @@
 #include "OrderState.h"
 
 void ReadyState::processOrder(Order* order) {
-    std::cout << "Order moving from Ready to Delivered" << std::endl;
+    std::cout << "Order moving from " + this->getStateName() + " to Delivered" << std::endl;
     order->setState(new DeliveredState());
 }
 
 void ReadyState::cancelOrder(Order* order) {
-    std::cout << "Order reverted from Ready to Pending" << std::endl;
+    std::cout << "Order reverted from " + this->getStateName() + " to Pending" << std::endl;
     order->setState(new PendingState()); // Backward transition
 }
 
@@ -27,12 +27,12 @@ std::string DeliveredState::getStateName() {
 }
 
 void PreparingState::processOrder(Order* order) {
-    std::cout << "Order moving from Preparing to Ready" << std::endl;
+    std::cout << "Order moving from " + this->getStateName() + " to Ready" << std::endl;
     order->setState(new ReadyState());
 }
 
 void PreparingState::cancelOrder(Order* order) {
-    std::cout << "Order reverted from Preparing to Pending" << std::endl;
+    std::cout << "Order reverted from " + this->getStateName() + " to Pending" << std::endl;
     order->setState(new PendingState()); // Backward transition
 }
 
@@ -41,12 +41,12 @@ std::string PreparingState::getStateName() {
 }
 
 void PendingState::processOrder(Order* order) {
-    std::cout << "Order moving from Pending to Preparing" << std::endl;
+    std::cout << "Order moving from " + this->getStateName() + " to Preparing" << std::endl;
     order->setState(new PreparingState());
 }
 
 void PendingState::cancelOrder(Order* order) {
-    std::cout << "Order cancelled in Pending state" << std::endl;
+    std::cout << "Order cancelled in " + this->getStateName() + " state" << std::endl;
     order->setState(nullptr); // Or a CancelledState
 }
 
