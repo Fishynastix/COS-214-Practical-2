@@ -18,6 +18,7 @@ void Menus::removeObserver(Observer* observer) {
 	}
 }
 
+//we cannot add pizzas which will also be added to order here and vica versa
 void Menus::addPizza(Pizza* pizza) {
 	pizzas.push_back(pizza);
 	notifyObservers("Added pizza: " + pizza->getName());

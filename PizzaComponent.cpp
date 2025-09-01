@@ -81,6 +81,7 @@ ToppingGroup::~ToppingGroup() {
 	for (PizzaComponent* topping : toppings) {
 		delete topping;
 	}
+	toppings.clear();
 }
 
 PizzaComponent* ToppingGroup::replicate() {

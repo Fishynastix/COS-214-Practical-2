@@ -20,6 +20,8 @@ int main() {
     Pizza* extraCheesePepperoni = new ExtraCheese(basePepperoni);
     Pizza* stuffedCrustPepperoni = new StuffedCrust(extraCheesePepperoni);
 
+    BasePizza* vegetarianPizza = new BasePizza(vegetarian);
+
     // Create order
     Customer* customer = new Customer("John", true);
     Order* order = new Order(customer);
@@ -35,9 +37,10 @@ int main() {
     // Menu notifications
     PizzaMenu* menu = new PizzaMenu();
     menu->addObserver(customer);
-    menu->addPizza(basePepperoni);
+    //menu->addPizza(basePepperoni);
 
     order->addPizza(menu->buyPizza(1));
+    order->addPizza(vegetarianPizza);
     std::cout << "Order total after adding pizza from menu: " << order->calculateTotal() << " ZAR" << std::endl;
     std::cout << "Total pizzas in order: " << order->getPizzaCount() << std::endl;
 

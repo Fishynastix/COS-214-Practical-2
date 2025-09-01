@@ -1,5 +1,6 @@
 #include "Order.h"
 
+//don't add a pizza here that is already added in the menu only use menu replicate or build your own pizza
 void Order::addPizza(Pizza* pizza) {
 	pizzas.push_back(pizza);
 }
@@ -69,6 +70,11 @@ Order::~Order() {
 		delete discountStrategy;
 		discountStrategy = nullptr;
 	}
+	for (int i = 0; i < pizzas.size(); i++)
+	{
+		delete pizzas[i];
+	}
+	pizzas.clear();
 }
 
 int Order::getPizzaCount() { return pizzas.size(); } // Helper for BulkDiscount
