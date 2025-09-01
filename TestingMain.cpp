@@ -37,6 +37,10 @@ int main() {
     menu->addObserver(customer);
     menu->addPizza(basePepperoni);
 
+    order->addPizza(menu->buyPizza(1));
+    std::cout << "Order total after adding pizza from menu: " << order->calculateTotal() << " ZAR" << std::endl;
+    std::cout << "Total pizzas in order: " << order->getPizzaCount() << std::endl;
+
     // Clean up
     delete order;
     delete customer;
