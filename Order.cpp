@@ -7,25 +7,45 @@ void Order::addPizza(Pizza* pizza) {
 double Order::calculateTotal() {
         total = 0.0;
         for (Pizza* pizza : pizzas) total += pizza->getPrice();
-        total = discountStrategy->applyDiscount(total, *this);
+		if (discountStrategy != nullptr)
+		{
+			total = discountStrategy->applyDiscount(total, *this);
+		}
         return total;
 }
 
 void Order::setDiscountStrategy(DiscountStrategy* strategy) {
-	delete this->discountStrategy;
+	if (strategy == nullptr)
+	{
+		return;
+	}
+	if (this->discountStrategy != nullptr)
+	{
+		delete this->discountStrategy;
+	}
 	this->discountStrategy = strategy;
 }
 
 void Order::processOrder() {
-	state->processOrder(*this);
+	if (state != nullptr)
+	{
+		state->processOrder(this);
+	}
 }
 
 void Order::cancelOrder() {
-	state->cancelOrder(*this);
+	if (state != nullptr)
+	{
+		state->cancelOrder(this);
+	}
 }
 
 void Order::setState(OrderState* state) {
-	delete this->state;
+	if (this->state != nullptr)
+	{
+		delete this->state;
+		this->state = nullptr;
+	}
 	this->state = state;
 }
 
@@ -33,12 +53,22 @@ std::string Order::getStateName() {
 	return state ? state->getStateName() : "None";
 }
 
-Order::Order(Customer* customer) : customer(customer), state(new PendingState()), discountStrategy(new RegularPrice()), total(0.0) {
+Order::Order(Customer* customer) : customer(customer), total(0.0) {
+	state = new PendingState();
+	discountStrategy = new RegularPrice();
 }
 
 Order::~Order() {
-	delete state;
-	delete discountStrategy;
+	if (state != nullptr)
+	{
+		delete state;
+		state = nullptr;
+	}
+	if (discountStrategy != nullptr)
+	{
+		delete discountStrategy;
+		discountStrategy = nullptr;
+	}
 }
 
 int Order::getPizzaCount() { return pizzas.size(); } // Helper for BulkDiscount

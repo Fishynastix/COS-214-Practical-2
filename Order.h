@@ -13,8 +13,8 @@ class Order {
 private:
 	std::vector<Pizza*> pizzas;	
 	Customer* customer;
-	OrderState* state; 
-	DiscountStrategy* discountStrategy;
+	OrderState* state = nullptr; 
+	DiscountStrategy* discountStrategy = nullptr;
 	double total;
 
 public:
