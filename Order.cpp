@@ -9,7 +9,7 @@ double Order::calculateTotal() {
         for (Pizza* pizza : pizzas) total += pizza->getPrice();
 		if (discountStrategy != nullptr)
 		{
-			total = discountStrategy->applyDiscount(total, *this);
+			total = discountStrategy->applyDiscount(total, this);
 		}
         return total;
 }
