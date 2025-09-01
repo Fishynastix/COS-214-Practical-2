@@ -43,7 +43,7 @@ void PizzaDecorator::printPizza() {
 }
 
 double ExtraCheese::getPrice() {
-	return 12.00;
+	return 12.00 + getPizza()->getPrice();
 }
 
 std::string ExtraCheese::getName() {
@@ -58,7 +58,7 @@ Pizza* ExtraCheese::replicate() {
 }
 
 double StuffedCrust::getPrice() {
-	return 20.00;
+	return 20.00 + getPizza()->getPrice();
 }
 
 std::string StuffedCrust::getName() {

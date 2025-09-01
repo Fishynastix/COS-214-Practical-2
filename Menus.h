@@ -3,18 +3,20 @@
 
 #include "Observer.h"
 #include "Pizza.h"
+#include <vector>
 
 class Menus {
 
-private:
-	Observer* observers;
-	Pizza* pizzas;
+protected:
+	std::vector<Observer*> observers;
+	std::vector<Pizza*> pizzas;
 public:
 	void addObserver(Observer* observer);
 	void removeObserver(Observer* observer);
 	void addPizza(Pizza* pizza);
 	void removePizza(Pizza* pizza);
 	virtual void notifyObservers(std::string message) = 0;
+	virtual ~Menus();
 };
 
 class SpecialsMenu : public Menus {

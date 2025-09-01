@@ -1,40 +1,76 @@
 #include "Order.h"
 
 void Order::addPizza(Pizza* pizza) {
-	// TODO - implement Order::addPizza
-	throw "Not yet implemented";
+	pizzas.push_back(pizza);
 }
 
 double Order::calculateTotal() {
-	// TODO - implement Order::calculateTotal
-	throw "Not yet implemented";
+        total = 0.0;
+        for (Pizza* pizza : pizzas) total += pizza->getPrice();
+		if (discountStrategy != nullptr)
+		{
+			total = discountStrategy->applyDiscount(total, this);
+		}
+        return total;
 }
 
 void Order::setDiscountStrategy(DiscountStrategy* strategy) {
-	// TODO - implement Order::setDiscountStrategy
-	throw "Not yet implemented";
+	if (strategy == nullptr)
+	{
+		return;
+	}
+	if (this->discountStrategy != nullptr)
+	{
+		delete this->discountStrategy;
+	}
+	this->discountStrategy = strategy;
 }
 
 void Order::processOrder() {
-	// TODO - implement Order::processOrder
-	throw "Not yet implemented";
+	if (state != nullptr)
+	{
+		state->processOrder(this);
+	}
 }
 
 void Order::cancelOrder() {
-	// TODO - implement Order::cancelOrder
-	throw "Not yet implemented";
+	if (state != nullptr)
+	{
+		state->cancelOrder(this);
+	}
 }
 
 void Order::setState(OrderState* state) {
+	if (this->state != nullptr)
+	{
+		delete this->state;
+		this->state = nullptr;
+	}
 	this->state = state;
 }
 
 std::string Order::getStateName() {
-	// TODO - implement Order::getStateName
-	throw "Not yet implemented";
+	return state ? state->getStateName() : "None";
 }
 
-Order::Order(Customer* customer) {
-	// TODO - implement Order::Order
-	throw "Not yet implemented";
+Order::Order(Customer* customer) : customer(customer), total(0.0) {
+	state = new PendingState();
+	discountStrategy = new RegularPrice();
 }
+
+Order::~Order() {
+	if (state != nullptr)
+	{
+		delete state;
+		state = nullptr;
+	}
+	if (discountStrategy != nullptr)
+	{
+		delete discountStrategy;
+		discountStrategy = nullptr;
+	}
+}
+
+int Order::getPizzaCount() { return pizzas.size(); } // Helper for BulkDiscount
+
+bool Order::isFamilyOrder() { return customer->getIsFamily(); } // Helper for FamilyDiscount

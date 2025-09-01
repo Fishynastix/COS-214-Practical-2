@@ -1,3 +1,6 @@
+#include "Order.h"
+#include "Menus.h"
+
 int main() {
     // Create toppings
     Topping* pepperoni = new Topping("Pepperoni", 20.00);
@@ -23,7 +26,7 @@ int main() {
     order->addPizza(stuffedCrustPepperoni);
     order->setDiscountStrategy(new FamilyDiscount());
     std::cout << "Order total: " << order->calculateTotal() << " ZAR" << std::endl; // (30 + 20 + 12 + 20) * 0.85 = 69.7 ZAR
-
+    std::cout << "Order state: " << order->getStateName() << std::endl;
     // Process order
     order->processOrder(); // Pending -> Preparing
     order->processOrder(); // Preparing -> Ready
