@@ -11,6 +11,7 @@ public:
 	virtual std::string getName() = 0;
 	virtual Pizza* replicate() = 0;
 	virtual void printPizza();
+	virtual ~Pizza() {}
 };
 
 class BasePizza : public Pizza 

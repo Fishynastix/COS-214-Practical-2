@@ -14,6 +14,7 @@ public:
 	virtual std::string getName();
 	virtual double getPrice();
 	virtual PizzaComponent* replicate();
+	virtual ~PizzaComponent() {}
 };
 
 class Topping : public PizzaComponent {

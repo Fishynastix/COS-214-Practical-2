@@ -14,7 +14,7 @@ private:
 	std::vector<Pizza*> pizzas;	
 	Customer* customer;
 	OrderState* state = nullptr; 
-	DiscountStrategy* discountStrategy = nullptr;
+	DiscountContext* discountContext = new DiscountContext();
 	double total;
 
 public:
